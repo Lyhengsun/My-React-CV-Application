@@ -1,0 +1,20 @@
+.CanvasContainer,
+.ActiveCanvasContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  height: 100vh;
+  top: 0px;
+  right: 0px;
+  transition: width ease-in 150ms;
+}
+
+.CanvasContainer {
+  width: 100vw;
+}
+
+.ActiveCanvasContainer {
+  width: 62vw;
+}
