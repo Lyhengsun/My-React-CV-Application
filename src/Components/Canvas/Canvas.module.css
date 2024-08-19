@@ -9,6 +9,7 @@
   top: 0px;
   right: 0px;
   transition: width ease-in 150ms;
+  z-index: 0;
 }
 
 .CanvasContainer {

@@ -1,4 +1,5 @@
 import { secondaryColor } from "../../Theme/Colors";
+import { Page } from "../Page";
 import styles from "./Canvas.module.css";
 
 export default Canvas;
@@ -9,7 +10,7 @@ function Canvas({ toggle = false }) {
       className={toggle ? styles.ActiveCanvasContainer : styles.CanvasContainer}
       style={{ backgroundColor: secondaryColor(60) }}
     >
-      Canvas
+      <Page />
     </div>
   );
 }

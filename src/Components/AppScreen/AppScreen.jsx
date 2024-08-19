@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Canvas } from "../Canvas";
 import { EditingDrawer } from "../EditingDrawer";
+import CanvasProvider from "../../Contexts/CanvasContext";
 
 export default AppScreen;
 
@@ -9,8 +10,10 @@ function AppScreen() {
 
   return (
     <div>
-      <Canvas toggle={toggle} />
-      <EditingDrawer toggle={toggle} setToggle={setToggle} />
+      <CanvasProvider>
+        <Canvas toggle={toggle} />
+        <EditingDrawer toggle={toggle} setToggle={setToggle} />
+      </CanvasProvider>
     </div>
   );
 }

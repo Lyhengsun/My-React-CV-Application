@@ -15,7 +15,7 @@ function EditingDrawer({ toggle = false, setToggle = () => {} }) {
       className={toggle ? styles.ActiveDrawerContainer : styles.DrawerContainer}
       style={{ backgroundColor: primaryColor }}
     >
-      <EditMenu />
+      {toggle && <EditMenu />}
       <div
         className={styles.ToggleBtn}
         onClick={handleOnToggleClick}
