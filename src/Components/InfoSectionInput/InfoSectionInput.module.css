@@ -1,0 +1,10 @@
+.InfoSectionInput {
+  margin-bottom: 5px;
+  padding: 5px;
+  border: 1px solid grey;
+}
+
+.InfoSectionInput * {
+  margin: 0;
+  padding: 0;
+}

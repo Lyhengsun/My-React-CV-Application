@@ -1,9 +1,28 @@
 export default class SectionModel {
-  constructor(id, title = "Section", description = "", infos = [], type = "") {
+  constructor(
+    id,
+    title = "Section",
+    description = "",
+    infos = [],
+    type = "section",
+  ) {
     this.id = id;
     this.title = title;
     this.desc = description;
     this.infos = infos;
     this.type = type;
+  }
+}
+
+export class TitleSectionModel extends SectionModel {
+  constructor(
+    id,
+    title = "Section",
+    description = "",
+    infos = [],
+    userImg = "",
+  ) {
+    super(id, title, description, infos, "title");
+    this.userImg = userImg;
   }
 }

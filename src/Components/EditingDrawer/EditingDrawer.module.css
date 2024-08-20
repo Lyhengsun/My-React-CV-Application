@@ -16,12 +16,40 @@
   width: 38vw;
 }
 
-.ToggleBtn {
-  width: 50px;
-  height: 50px;
+.ToggleBtnContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   top: calc(50vh - 25px);
-  right: -25px;
+  right: -26px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+}
+
+.ToggleBtn {
+  position: absolute;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   border: 5px solid;
+}
+
+.ToggleBtnBorder {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: flex;
+  overflow: hidden;
+}
+
+.ToggleBtnBorderLeft,
+.ToggleBtnBorderRight {
+  width: 50%;
+  height: 100%;
+}
+.ToggleBtnBorderRight {
+  background-color: grey;
 }

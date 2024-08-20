@@ -24,11 +24,26 @@ function TitlePageSection({ sectionInfo }) {
 
   return (
     <div style={styles}>
-      <p style={FontSize.h1Styles}>{title}</p>
-      <p style={FontSize.p1Styles}>{desc}</p>
+      <div style={{ display: "flex", alignItems: "center" }}>
+        <div style={{ marginBottom: "10px" }}>
+          <div
+            style={{
+              borderRadius: "50%",
+              width: "100px",
+              aspectRatio: "1",
+              backgroundColor: "red",
+              marginRight: "10px",
+            }}
+          ></div>
+        </div>
+        <div>
+          <p style={FontSize.h1Styles}>{title}</p>
+          <p style={FontSize.p1Styles}>{desc}</p>
+        </div>
+      </div>
       {infos.length > 0 &&
         (infos.length > 1 ? (
-          <ul>
+          <ul style={FontSize.p2Styles}>
             {infos.map((info, index) => (
               <li key={listId[index]}>{info}</li>
             ))}

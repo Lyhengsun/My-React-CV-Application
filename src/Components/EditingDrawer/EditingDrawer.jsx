@@ -15,12 +15,21 @@ function EditingDrawer({ toggle = false, setToggle = () => {} }) {
       className={toggle ? styles.ActiveDrawerContainer : styles.DrawerContainer}
       style={{ backgroundColor: primaryColor }}
     >
+      <div className={styles.ToggleBtnContainer}>
+        <div className={styles.ToggleBtnBorder}>
+          <div className={styles.ToggleBtnBorderLeft}></div>
+          <div className={styles.ToggleBtnBorderRight}></div>
+        </div>
+        <div
+          className={styles.ToggleBtn}
+          onClick={handleOnToggleClick}
+          style={{
+            backgroundColor: secondaryColor(),
+            borderColor: primaryColor,
+          }}
+        ></div>
+      </div>
       {toggle && <EditMenu />}
-      <div
-        className={styles.ToggleBtn}
-        onClick={handleOnToggleClick}
-        style={{ backgroundColor: secondaryColor(), borderColor: primaryColor }}
-      ></div>
     </div>
   );
 }

@@ -7,7 +7,7 @@ export default PageContent;
 function PageContent() {
   const sections = useCanvas();
 
-  console.log(sections);
+  //console.log(sections);
 
   return (
     <>

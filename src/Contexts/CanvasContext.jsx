@@ -1,5 +1,5 @@
 import { createContext, useContext, useReducer } from "react";
-import SectionModel from "../Models/SectionModel";
+import SectionModel, { TitleSectionModel } from "../Models/SectionModel";
 
 export default CanvasProvider;
 
@@ -46,12 +46,11 @@ function canvasReducer(canvas, action) {
 }
 
 const initialCanvas = [
-  new SectionModel(
+  new TitleSectionModel(
     0,
     "Guest",
     "A Student",
     ["I'm gay", "I am hardworking"],
-    "title",
   ),
   new SectionModel(
     1,
