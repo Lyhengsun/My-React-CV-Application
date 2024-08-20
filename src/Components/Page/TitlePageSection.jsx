@@ -1,3 +1,5 @@
+import FontSize from "../../Theme/FontSize";
+
 export default TitlePageSection;
 
 const listId = [];
@@ -17,13 +19,13 @@ function TitlePageSection({ sectionInfo }) {
   }
 
   const styles = {
-    margin: "10px",
+    margin: "10px 10px 0px",
   };
 
   return (
     <div style={styles}>
-      <h1>{title}</h1>
-      <p>{desc}</p>
+      <p style={FontSize.h1Styles}>{title}</p>
+      <p style={FontSize.p1Styles}>{desc}</p>
       {infos.length > 0 &&
         (infos.length > 1 ? (
           <ul>

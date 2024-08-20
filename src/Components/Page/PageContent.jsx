@@ -1,4 +1,5 @@
 import { useCanvas } from "../../Contexts/CanvasContext";
+import PageSection from "./PageSection";
 import TitlePageSection from "./TitlePageSection";
 
 export default PageContent;
@@ -18,7 +19,7 @@ function PageContent() {
             break;
 
           default:
-            content = section.title;
+            content = <PageSection sectionInfo={section} />;
             break;
         }
 

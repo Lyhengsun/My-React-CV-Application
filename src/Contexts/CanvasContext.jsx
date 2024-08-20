@@ -37,6 +37,8 @@ function canvasReducer(canvas, action) {
           action.sectionType,
         ),
       ];
+    case "deleted_section":
+      return canvas.filter((section) => section.id != action.sectionId);
 
     default:
       throw Error(`Unknown action type: ${action.type}`);
@@ -44,7 +46,13 @@ function canvasReducer(canvas, action) {
 }
 
 const initialCanvas = [
-  new SectionModel(0, "Guest", "A Student", ["I'm gay", "I am hardworking"], "title"),
+  new SectionModel(
+    0,
+    "Guest",
+    "A Student",
+    ["I'm gay", "I am hardworking"],
+    "title",
+  ),
   new SectionModel(
     1,
     "Education",
