@@ -44,16 +44,18 @@ function canvasReducer(canvas, action) {
 }
 
 const initialCanvas = [
-  new SectionModel(0, "Guest", ["A Student"], "title"),
+  new SectionModel(0, "Guest", "A Student", ["I'm gay", "I am hardworking"], "title"),
   new SectionModel(
     1,
     "Education",
+    "",
     ["Got bachelor's degree in computer science from my university"],
     "section",
   ),
   new SectionModel(
     2,
     "Experience",
+    "",
     ["Got work on an important project once for google"],
     "section",
   ),

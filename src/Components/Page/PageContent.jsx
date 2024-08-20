@@ -14,7 +14,7 @@ function PageContent() {
         let content;
         switch (section.type) {
           case "title":
-            content = <TitlePageSection />;
+            content = <TitlePageSection sectionInfo={section} />;
             break;
 
           default:
