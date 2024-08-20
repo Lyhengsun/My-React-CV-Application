@@ -17,7 +17,7 @@
   background-color: white;
   width: 210mm;
   aspect-ratio: 210/297;
-  margin: 10mm auto;
+  margin: 10mm 10mm;
   border: 1px #d3d3d3 solid;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   padding: 12.7mm;
