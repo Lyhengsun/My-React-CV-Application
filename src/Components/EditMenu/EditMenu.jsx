@@ -10,7 +10,7 @@ function EditMenu() {
   return (
     <div className={styles.EditMenuContainer}>
       {sections.map((section) => {
-        return <InfoSectionInput key={section.id} type={section.type} />;
+        return <InfoSectionInput key={section.id} section={section} />;
       })}
     </div>
   );
