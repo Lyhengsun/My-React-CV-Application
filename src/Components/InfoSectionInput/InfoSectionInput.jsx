@@ -5,6 +5,7 @@ import { capitalize } from "../../Utils/utils";
 import styles from "./InfoSectionInput.module.css";
 import SectionModel from "../../Models/SectionModel";
 import ListItemInput from "./ListItemInput";
+import EditableTextbox from "../EditableTextbox/EditableTextbox";
 
 export default InfoSectionInput;
 
@@ -27,13 +28,15 @@ function InfoSectionInput({ section }) {
 
   function handleOnEdit(newSection) {
     const id = newSection.id;
-    const title = newSection.title;
-    const infos = newSection.infos;
     dispatch({
       type: "edited_section",
       sectionId: id,
-      newSection: new SectionModel(id, title, "", infos),
+      newSection: newSection,
     });
+  }
+
+  function handleOnTitleEdit(newTitle) {
+    handleOnEdit(new SectionModel(id, newTitle, "", infos));
   }
 
   function handleOnInfoEdit(infoIndex, newInfo) {
@@ -56,10 +59,12 @@ function InfoSectionInput({ section }) {
   return (
     <div className={styles.InfoSectionInput}>
       <p style={FontSize.h1Styles}>{capitalize(type)}</p>
-      <div>
-        <span>Title: </span>
-        <span>{title}</span>
-        <button>Edit</button>
+      <div style={{ display: "flex" }}>
+        <span style={{ marginRight: "5px" }}>Title:</span>
+        <EditableTextbox
+          infoText={title}
+          handleOnTextboxEdit={handleOnTitleEdit}
+        />
       </div>
       <p style={FontSize.h2Styles}>Info</p>
       <div>
