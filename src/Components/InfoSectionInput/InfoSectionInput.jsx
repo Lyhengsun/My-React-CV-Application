@@ -6,6 +6,7 @@ import styles from "./InfoSectionInput.module.css";
 import SectionModel from "../../Models/SectionModel";
 import ListItemInput from "./ListItemInput";
 import EditableTextbox from "../EditableTextbox/EditableTextbox";
+import NewInfoInput from "./NewInfoInput";
 
 export default InfoSectionInput;
 
@@ -56,6 +57,10 @@ function InfoSectionInput({ section }) {
     );
   }
 
+  function handleOnInfoAdd(newInfo) {
+    handleOnEdit(new SectionModel(id, title, "", [...infos, newInfo]));
+  }
+
   return (
     <div className={styles.InfoSectionInput}>
       <p style={FontSize.h1Styles}>{capitalize(type)}</p>
@@ -67,6 +72,7 @@ function InfoSectionInput({ section }) {
         />
       </div>
       <p style={FontSize.h2Styles}>Info</p>
+      <NewInfoInput handleOnInfoAdd={handleOnInfoAdd} />
       <div>
         {infos.map((info, index) => (
           <ListItemInput
