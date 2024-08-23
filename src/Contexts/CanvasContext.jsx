@@ -1,5 +1,6 @@
 import { createContext, useContext, useReducer } from "react";
 import SectionModel, { TitleSectionModel } from "../Models/SectionModel";
+import { InfoModel, infoType } from "../Models/InfoModel";
 
 export default CanvasProvider;
 
@@ -53,22 +54,20 @@ function canvasReducer(canvas, action) {
 }
 
 const initialCanvas = [
-  new TitleSectionModel(0, "Guest", "A Student", [
-    "I'm gay",
-    "I am hardworking",
+  new TitleSectionModel(0, "Guest", [
+    new InfoModel(["A Student"], infoType.INFO_DESCRIPTION),
+    new InfoModel(["I'm gay", "I am hardworking"], infoType.INFO_LIST),
   ]),
-  new SectionModel(
-    1,
-    "Education",
-    "",
-    ["Got bachelor's degree in computer science from my university"],
-    "section",
-  ),
-  new SectionModel(
-    2,
-    "Experience",
-    "",
-    ["Got work on an important project once for google"],
-    "section",
-  ),
+  new SectionModel(1, "Education", [
+    new InfoModel(
+      ["Got bachelor's degree in computer science from my university"],
+      infoType.INFO_LIST,
+    ),
+  ]),
+  new SectionModel(2, "Experience", [
+    new InfoModel(
+      ["Got work on an important project once for google"],
+      infoType.INFO_LIST,
+    ),
+  ]),
 ];

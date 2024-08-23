@@ -1,4 +1,5 @@
 import FontSize from "../../Theme/FontSize";
+import PageSectionList from "./PageSectionList";
 
 export default PageSection;
 
@@ -8,6 +9,8 @@ function PageSection({ sectionInfo }) {
   const id = sectionInfo.id;
   const title = sectionInfo.title;
   const infos = sectionInfo.infos;
+
+  //console.log(infos);
 
   while (listId.length < infos.length) {
     if (listId.length <= 0) {
@@ -26,7 +29,7 @@ function PageSection({ sectionInfo }) {
       <p style={FontSize.h2Styles}>{title}</p>
       <ul style={FontSize.p2Styles}>
         {infos.map((info, index) => (
-          <li key={listId[index]}>{info}</li>
+          <PageSectionList key={listId[index]} infos={info} />
         ))}
       </ul>
     </div>

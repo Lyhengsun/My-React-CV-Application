@@ -74,7 +74,7 @@ function InfoSectionInput({ section }) {
       <p style={FontSize.h2Styles}>Info</p>
       <NewInfoInput handleOnInfoAdd={handleOnInfoAdd} />
       <div>
-        {infos.map((info, index) => (
+        {infos[0].map((info, index) => (
           <ListItemInput
             key={listId[index]}
             infoText={info}

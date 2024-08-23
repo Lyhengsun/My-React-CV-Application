@@ -7,8 +7,10 @@ const listId = [];
 function TitlePageSection({ sectionInfo }) {
   const id = sectionInfo.id;
   const title = sectionInfo.title;
-  const desc = sectionInfo.desc;
-  const infos = sectionInfo.infos;
+  const desc = sectionInfo.infos[0].infos[0];
+  const infos = sectionInfo.infos[1].infos;
+
+  //console.log(infos);
 
   while (listId.length < infos.length) {
     if (listId.length <= 0) {
