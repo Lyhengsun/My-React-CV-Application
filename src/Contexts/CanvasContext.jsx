@@ -34,7 +34,6 @@ function canvasReducer(canvas, action) {
           action.sectionId,
           action.sectionTitle,
           action.sectionInfo,
-          action.sectionType,
         ),
       ];
     case "deleted_section":
