@@ -1,19 +1,13 @@
 import FontSize from "../../Theme/FontSize";
+import { tempListId } from "../../Utils/utils";
 
 export default PageSectionList;
 
-const listId = [];
+const componentTempListId = new tempListId();
 
 function PageSectionList({ infos }) {
   const sectionInfos = infos.infos;
-
-  while (listId.length < sectionInfos.length) {
-    if (listId.length <= 0) {
-      listId.push(1);
-    } else {
-      listId.push(listId[listId.length - 1] + 1);
-    }
-  }
+  const listId = componentTempListId.getTempListId(sectionInfos)
 
   return (
     <ul style={FontSize.p2Styles}>
