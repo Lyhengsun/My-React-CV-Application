@@ -18,6 +18,13 @@ class FontSize {
     fontSize: "13px",
     fontWeight: "normal",
   };
+
+  static FontSizeList = [
+    FontSize.h1Styles,
+    FontSize.p1Styles,
+    FontSize.h2Styles,
+    FontSize.p2Styles,
+  ];
 }
 
 export default FontSize;

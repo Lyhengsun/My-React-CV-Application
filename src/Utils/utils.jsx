@@ -17,4 +17,8 @@ export class tempListId {
     }
     return this.tempListId;
   }
+
+  getIndexOfId(id) {
+    return this.tempListId.indexOf(id);
+  }
 }

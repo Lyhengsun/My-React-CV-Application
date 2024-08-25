@@ -19,6 +19,8 @@ function EditMenu() {
     });
   }
 
+  //console.log(sections);
+
   return (
     <div className={styles.EditMenuContainer}>
       {sections.map((section) => {
