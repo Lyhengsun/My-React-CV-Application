@@ -1,12 +1,9 @@
-import { useLayoutEffect, useRef, useState } from "react";
 import { useCanvasDispatch } from "../../Contexts/CanvasContext";
 import FontSize from "../../Theme/FontSize";
 import { capitalize, tempListId } from "../../Utils/utils";
 import styles from "./InfoSectionInput.module.css";
 import SectionModel from "../../Models/SectionModel";
-import ListItemInput from "./ListItemInput";
 import EditableTextbox from "../EditableTextbox/EditableTextbox";
-import NewInfoInput from "./NewInfoInput";
 import { InfoModel, infoType } from "../../Models/InfoModel";
 import InfoSectionInputList from "./InfoSectionInputList";
 import InfoSectionInputDesc from "./InfoSectionInputDesc";
@@ -25,14 +22,6 @@ function InfoSectionInput({ section }) {
   //console.log(infos);
 
   const listId = componentTempListId.getTempListId(infos);
-
-  while (listId.length < infos.length) {
-    if (listId.length <= 0) {
-      listId.push(0);
-    } else {
-      listId.push(listId[listId.length - 1] + 1);
-    }
-  }
 
   function handleOnEdit(newSection) {
     const id = newSection.id;
@@ -63,18 +52,24 @@ function InfoSectionInput({ section }) {
     );
   }
 
-  function handleOnInfoEdit(infoIndex, newInfo) {
+  function handleOnEditInfoList(infoIndex, listIndex, newInfo) {
     handleOnEdit(
       new SectionModel(
         id,
         title,
-        "",
         infos.map((info, index) => {
           if (index === infoIndex) {
-            return newInfo;
-          } else {
-            return info;
+            return new InfoModel(
+              info.infos.map((info, index) => {
+                if (index === listIndex) {
+                  return newInfo;
+                }
+                return info;
+              }),
+              infoType.INFO_LIST,
+            );
           }
+          return info;
         }),
       ),
     );
@@ -87,11 +82,11 @@ function InfoSectionInput({ section }) {
   return (
     <div className={styles.InfoSectionInput}>
       <p style={FontSize.h1Styles}>{capitalize(type)}</p>
-      <div>
+      <div style={{ display: "flex" }}>
         <span style={{ display: "inline-block", marginRight: "5px" }}>
           Title:
         </span>
-        <div style={{ display: "inline-block" }}>
+        <div style={{ width: "100%" }}>
           <EditableTextbox
             infoText={title}
             handleOnTextboxEdit={handleOnTitleEdit}
@@ -115,7 +110,15 @@ function InfoSectionInput({ section }) {
               />
             );
           } else {
-            return <InfoSectionInputList key={listId[index]} infos={info} />;
+            return (
+              <InfoSectionInputList
+                key={listId[index]}
+                infos={info}
+                handleOnEditInfoList={(listIndex, newInfo) =>
+                  handleOnEditInfoList(index, listIndex, newInfo)
+                }
+              />
+            );
           }
         })}
       </div>

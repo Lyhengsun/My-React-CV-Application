@@ -61,7 +61,10 @@ const initialCanvas = [
   new SectionModel(1, "Education", [
     new InfoModel(["Study at Hogwarts"], infoType.INFO_DESCRIPTION),
     new InfoModel(
-      ["Got bachelor's degree in computer science from my university"],
+      [
+        "Got bachelor's degree in computer science from my university",
+        "Got bachelor's degree in computer science from other university",
+      ],
       infoType.INFO_LIST,
     ),
   ]),

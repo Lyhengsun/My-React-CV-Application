@@ -19,25 +19,33 @@ function EditableTextbox({ infoText = "", handleOnTextboxEdit = () => {} }) {
 
   function handleExpandTextArea(e) {
     e.target.style.height = "inherit";
-    e.target.style.height = `${e.target.scrollHeight + 5}px`;
+    e.target.style.height = `${e.target.scrollHeight + 2}px`;
   }
 
   return (
-    <div style={{ display: "flex" }}>
-      {toggleEdit ? (
-        <textarea
-          name=""
-          id="text-input"
-          defaultValue={currentInfoText.current}
-          onChange={handleOnChangeTextInput}
-          onMouseDown={handleExpandTextArea}
-          onFocus={(e) => (e.target.selectionStart = e.target.value.length)}
-        ></textarea>
-      ) : (
-        currentInfoText.current
-      )}{" "}
-      <div>
-        <button onClick={handleOnEdit}>{toggleEdit ? "Save" : "Edit"}</button>
+    <div>
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        {toggleEdit ? (
+          <textarea
+            name=""
+            id="text-input"
+            defaultValue={currentInfoText.current}
+            onChange={handleOnChangeTextInput}
+            onMouseDown={handleExpandTextArea}
+            onFocus={(e) => (e.target.selectionStart = e.target.value.length)}
+            style={{ width: "80%" }}
+          ></textarea>
+        ) : (
+          <div style={{ width: "auto" }}>{currentInfoText.current}</div>
+        )}{" "}
+        <div style={{ width: "70px" }}>
+          <div style={{ display: "flex" }}>
+            <button style={{ marginRight: "5px" }} onClick={handleOnEdit}>
+              {toggleEdit ? "Save" : "Edit"}
+            </button>
+            <button>Delete</button>
+          </div>
+        </div>
       </div>
     </div>
   );
