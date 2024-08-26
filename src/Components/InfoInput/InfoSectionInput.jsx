@@ -6,10 +6,9 @@ import { useCanvasDispatch, useSection } from "../../Contexts";
 export default InfoSectionInput;
 
 function InfoSectionInput() {
-  const dispatch = useCanvasDispatch();
+  const canvasDispatch = useCanvasDispatch();
   const section = useSection();
   const id = section.id;
-  const type = section.type;
   const title = section.title;
   const infos = section.infos;
 
@@ -17,7 +16,7 @@ function InfoSectionInput() {
 
   function handleOnEdit(newSection) {
     const id = newSection.id;
-    dispatch({
+    canvasDispatch({
       type: "edited_section",
       sectionId: id,
       newSection: newSection,
@@ -26,6 +25,14 @@ function InfoSectionInput() {
 
   function handleOnTitleEdit(newTitle) {
     handleOnEdit(new SectionModel(id, newTitle, infos));
+  }
+
+  function handleOnAddInfo(infoType) {
+    canvasDispatch({
+      type: "added_section_infos",
+      sectionId: id,
+      infoType: infoType,
+    });
   }
 
   function handleOnEditInfoDesc(infoIndex, newInfo) {
@@ -45,31 +52,20 @@ function InfoSectionInput() {
   }
 
   function handleOnEditInfoList(infoIndex, listIndex, newInfo) {
-    handleOnEdit(
-      new SectionModel(
-        id,
-        title,
-        infos.map((info, index) => {
-          if (index === infoIndex) {
-            return new InfoModel(
-              info.infos.map((info, index) => {
-                if (index === listIndex) {
-                  return newInfo;
-                }
-                return info;
-              }),
-              infoType.INFO_LIST,
-            );
-          }
-          return info;
-        }),
-      ),
-    );
+    canvasDispatch({
+      type: "edited_section_infos",
+      sectionId: id,
+      sectionInfoIndex: infoIndex,
+      sectionInfoListIndex: listIndex,
+      newSectionListInfo: newInfo,
+      infoType: infoType.INFO_LIST,
+    });
   }
 
   return (
     <InfoInput
       handleOnTitleEdit={handleOnTitleEdit}
+      handleOnAddInfo={handleOnAddInfo}
       handleOnEditInfoDesc={handleOnEditInfoDesc}
       handleOnEditInfoList={handleOnEditInfoList}
     />

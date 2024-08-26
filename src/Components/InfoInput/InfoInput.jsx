@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { useSection } from "../../Contexts";
 import { infoType } from "../../Models/InfoModel";
 import FontSize from "../../Theme/FontSize";
@@ -12,6 +13,7 @@ const componentTempListId = new tempListId();
 
 function InfoInput({
   handleOnTitleEdit = () => {},
+  handleOnAddInfo = () => {},
   handleOnEditInfoDesc = () => {},
   handleOnEditInfoList = () => {},
 }) {
@@ -22,6 +24,8 @@ function InfoInput({
   const infos = section.infos;
 
   const listId = componentTempListId.getTempListId(infos);
+
+  const infoInputTypeSelect = useRef("Desc");
 
   return (
     <div className={styles.InfoSectionInput}>
@@ -37,7 +41,32 @@ function InfoInput({
           />
         </div>
       </div>
-
+      <div style={{ display: "flex" }}>
+        <select
+          name=""
+          id=""
+          defaultValue={infoInputTypeSelect.current}
+          onChange={(e) => {
+            infoInputTypeSelect.current = e.target.value;
+            console.log(infoInputTypeSelect.current);
+          }}
+        >
+          <option value="Desc">Description</option>
+          <option value="List">Info List</option>
+        </select>{" "}
+        <div style={{ width: "4px" }}></div>
+        <button
+          onClick={() => {
+            handleOnAddInfo(
+              infoInputTypeSelect.current === "Desc"
+                ? infoType.INFO_DESCRIPTION
+                : infoType.INFO_LIST,
+            );
+          }}
+        >
+          Add Info
+        </button>
+      </div>
       <div>
         {infos.map((info, index) => {
           if (info.type === infoType.INFO_DESCRIPTION) {

@@ -7,5 +7,4 @@ export {
 export {
   default as SectionProvider,
   useSection,
-  useSectionDispatch,
 } from "./SectionContext";

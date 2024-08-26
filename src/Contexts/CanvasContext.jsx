@@ -47,7 +47,42 @@ function canvasReducer(canvas, action) {
           return section;
         }
       });
-
+    case "added_section_infos":
+      return canvas.map((section) => {
+        if (section.id === action.sectionId) {
+          return new SectionModel(section.id, section.title, [
+            ...section.infos,
+            action.infoType === infoType.INFO_DESCRIPTION
+              ? new InfoModel(["", infoType.INFO_DESCRIPTION])
+              : new InfoModel([], infoType.INFO_LIST),
+          ]);
+        }
+        return section;
+      });
+    case "edited_section_infos":
+      return canvas.map((section) => {
+        if (section.id === action.sectionId) {
+          return new SectionModel(
+            section.id,
+            section.title,
+            section.infos.map((info, index) => {
+              if (index === action.sectionInfoIndex) {
+                return new InfoModel(
+                  section.infos[index].infos.map((info, index) => {
+                    if (index === action.sectionInfoListIndex) {
+                      return action.newSectionListInfo;
+                    }
+                    return info;
+                  }),
+                  action.infoType,
+                );
+              }
+              return info;
+            }),
+          );
+        }
+        return section;
+      });
     default:
       throw Error(`Unknown action type: ${action.type}`);
   }

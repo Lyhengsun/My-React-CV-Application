@@ -1,5 +1,6 @@
 import { useSection } from "../../Contexts";
 import FontSize from "../../Theme/FontSize";
+import InfoInput from "./InfoInput";
 import styles from "./InfoSectionInput.module.css";
 
 export default InfoTitleInput;
@@ -11,9 +12,5 @@ function InfoTitleInput() {
   const infos = section.infos;
   const userImg = section.useImg;
 
-  return (
-    <div className={styles.InfoSectionInput}>
-      <p style={FontSize.h1Styles}>Title</p>
-    </div>
-  );
+  return <InfoInput />;
 }
