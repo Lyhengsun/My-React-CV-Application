@@ -1,5 +1,6 @@
-import { useCanvas, useCanvasDispatch } from "../../Contexts/CanvasContext";
-import InfoSectionInput from "../InfoSectionInput/InfoSectionInput";
+import { SectionProvider, useCanvas, useCanvasDispatch } from "../../Contexts";
+import InfoSectionInput from "../InfoInput/InfoSectionInput";
+import InfoTitleInput from "../InfoInput/InfoTitleInput";
 import styles from "./EditMenu.module.css";
 
 export default EditMenu;
@@ -24,7 +25,18 @@ function EditMenu() {
   return (
     <div className={styles.EditMenuContainer}>
       {sections.map((section) => {
-        return <InfoSectionInput key={section.id} section={section} />;
+        if (section.type === "title") {
+          return (
+            <SectionProvider key={section.id} section={section}>
+              <InfoTitleInput />
+            </SectionProvider>
+          );
+        }
+        return (
+          <SectionProvider key={section.id} section={section}>
+            <InfoSectionInput />
+          </SectionProvider>
+        );
       })}
       <button onClick={handleOnAdd}>Add</button>
     </div>

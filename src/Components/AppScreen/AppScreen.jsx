@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Canvas } from "../Canvas";
 import { EditingDrawer } from "../EditingDrawer";
-import CanvasProvider from "../../Contexts/CanvasContext";
+import { CanvasProvider } from "../../Contexts";
 
 export default AppScreen;
 

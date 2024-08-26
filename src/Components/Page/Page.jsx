@@ -6,7 +6,13 @@ export default Page;
 function Page() {
   return (
     <div className={styles.PageContainer}>
-      <div style={{ width: "230mm", height: "297mm", margin: "0 auto" }}>
+      <div
+        style={{
+          width: "230mm",
+          height: "307mm",
+          margin: "0 auto",
+        }}
+      >
         <div className={styles.Page}>
           <PageContent />
         </div>

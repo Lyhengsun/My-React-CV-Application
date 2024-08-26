@@ -1,4 +1,4 @@
-import { useCanvas } from "../../Contexts/CanvasContext";
+import { useCanvas } from "../../Contexts";
 import PageSection from "./PageSection";
 import TitlePageSection from "./TitlePageSection";
 
