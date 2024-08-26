@@ -15,6 +15,7 @@ function InfoInput({
   handleOnTitleEdit = () => {},
   handleOnAddInfo = () => {},
   handleOnEditInfoDesc = () => {},
+  handleOnAddInfoList = () => {},
   handleOnEditInfoList = () => {},
 }) {
   const section = useSection();
@@ -87,6 +88,7 @@ function InfoInput({
               <InfoSectionInputList
                 key={listId[index]}
                 infos={info}
+                handleOnAddInfoList={() => handleOnAddInfoList(index)}
                 handleOnEditInfoList={(listIndex, newInfo) =>
                   handleOnEditInfoList(index, listIndex, newInfo)
                 }

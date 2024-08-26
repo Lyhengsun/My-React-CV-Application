@@ -6,14 +6,28 @@ export default InfoSectionInputList;
 
 const componentTempListId = new tempListId();
 
-function InfoSectionInputList({ infos, handleOnEditInfoList = () => {} }) {
+function InfoSectionInputList({
+  infos,
+  handleOnAddInfoList = () => {},
+  handleOnEditInfoList = () => {},
+}) {
   //console.log(infos);
 
   const listId = componentTempListId.getTempListId(infos.infos);
   return (
-    <div>
+    <div style={{ marginTop: "4px" }}>
       <div>
-        <p style={FontSize.h2Styles}>Info List</p>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            marginBottom: "4px",
+          }}
+        >
+          <p style={FontSize.h2Styles}>Info List</p>
+          <div style={{ width: "4px" }}></div>
+          <button onClick={handleOnAddInfoList}>Add new info to list</button>
+        </div>
         {infos.infos.map((info, index) => (
           <ListItemInput
             key={listId[index]}

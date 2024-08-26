@@ -83,6 +83,32 @@ function canvasReducer(canvas, action) {
         }
         return section;
       });
+    case "added_section_new_list_info":
+      const newCanvas = canvas.map((section) => {
+        if (section.id === action.sectionId) {
+          return new SectionModel(
+            section.id,
+            section.title,
+            section.infos.map((info, index) => {
+              if (index === action.infoIndex) {
+                const oldInfoModel = section.infos[index];
+                return new InfoModel(
+                  [...oldInfoModel.infos, ""],
+                  oldInfoModel.type,
+                );
+              }
+              return info;
+            }),
+          );
+        }
+        return section;
+      });
+      console.log("Old Canvas");
+      console.log(canvas);
+      console.log();
+      console.log("New Canvas");
+      console.log(newCanvas);
+      return newCanvas;
     default:
       throw Error(`Unknown action type: ${action.type}`);
   }

@@ -51,6 +51,14 @@ function InfoSectionInput() {
     );
   }
 
+  function handleOnAddInfoList(infoIndex) {
+    canvasDispatch({
+      type: "added_section_new_list_info",
+      sectionId: id,
+      infoIndex: infoIndex,
+    });
+  }
+
   function handleOnEditInfoList(infoIndex, listIndex, newInfo) {
     canvasDispatch({
       type: "edited_section_infos",
@@ -67,6 +75,7 @@ function InfoSectionInput() {
       handleOnTitleEdit={handleOnTitleEdit}
       handleOnAddInfo={handleOnAddInfo}
       handleOnEditInfoDesc={handleOnEditInfoDesc}
+      handleOnAddInfoList={handleOnAddInfoList}
       handleOnEditInfoList={handleOnEditInfoList}
     />
   );
