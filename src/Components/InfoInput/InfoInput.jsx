@@ -14,6 +14,7 @@ const componentTempListId = new tempListId();
 function InfoInput({
   handleOnTitleEdit = () => {},
   handleOnAddInfo = () => {},
+  handleOnDeleteList = () => {},
   handleOnEditInfoDesc = () => {},
   handleOnAddInfoList = () => {},
   handleOnEditInfoList = () => {},
@@ -89,6 +90,7 @@ function InfoInput({
               <InfoSectionInputList
                 key={listId[index]}
                 infos={info}
+                handleOnDeleteList={() => handleOnDeleteList(index)}
                 handleOnAddInfoList={() => handleOnAddInfoList(index)}
                 handleOnEditInfoList={(listIndex, newInfo) =>
                   handleOnEditInfoList(index, listIndex, newInfo)

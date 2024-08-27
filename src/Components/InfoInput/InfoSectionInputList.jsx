@@ -8,6 +8,7 @@ const componentTempListId = new tempListId();
 
 function InfoSectionInputList({
   infos,
+  handleOnDeleteList = () => {},
   handleOnAddInfoList = () => {},
   handleOnEditInfoList = () => {},
   handleOnDeleteInfoList = () => {},
@@ -22,12 +23,16 @@ function InfoSectionInputList({
           style={{
             display: "flex",
             justifyContent: "space-between",
+            alignItems: "start",
             marginBottom: "4px",
           }}
         >
           <p style={FontSize.h2Styles}>Info List</p>
           <div style={{ width: "4px" }}></div>
-          <button onClick={handleOnAddInfoList}>Add new info to list</button>
+          <div>
+            <button onClick={handleOnAddInfoList}>Add Info to list</button>{" "}
+            <button onClick={handleOnDeleteList}>Delete List</button>
+          </div>
         </div>
         {infos.infos.map((info, index) => (
           <ListItemInput

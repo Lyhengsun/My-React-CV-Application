@@ -88,6 +88,18 @@ function canvasReducer(canvas, action) {
         }
         return section;
       });
+    case "deleted_section_infos":
+      return canvas.map((section) => {
+        if (section.id === action.sectionId) {
+          return new SectionModel(
+            section.id,
+            section.title,
+            section.infos.filter((_, index) => index !== action.infoIndex),
+            section.type,
+          );
+        }
+        return section;
+      });
     case "added_section_new_list_info":
       const newCanvas = canvas.map((section) => {
         if (section.id === action.sectionId) {

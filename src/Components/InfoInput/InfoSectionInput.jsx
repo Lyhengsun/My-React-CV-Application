@@ -35,6 +35,14 @@ function InfoSectionInput() {
     });
   }
 
+  function handleOnDeleteInfo(infoIndex) {
+    canvasDispatch({
+      type: "deleted_section_infos",
+      sectionId: id,
+      infoIndex: infoIndex,
+    });
+  }
+
   function handleOnEditInfoDesc(infoIndex, newInfo) {
     handleOnEdit(
       new SectionModel(
@@ -75,14 +83,15 @@ function InfoSectionInput() {
       type: "deleted_section_list_info",
       sectionId: id,
       infoIndex: infoIndex,
-      infoListIndex: listIndex
-    })
+      infoListIndex: listIndex,
+    });
   }
 
   return (
     <InfoInput
       handleOnTitleEdit={handleOnTitleEdit}
       handleOnAddInfo={handleOnAddInfo}
+      handleOnDeleteList={handleOnDeleteInfo}
       handleOnEditInfoDesc={handleOnEditInfoDesc}
       handleOnAddInfoList={handleOnAddInfoList}
       handleOnEditInfoList={handleOnEditInfoList}
