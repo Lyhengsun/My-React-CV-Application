@@ -7,9 +7,10 @@ function InfoSectionInputDesc({
   infos,
   handleOnDeleteDesc = () => {},
   handleOnEditInfoDesc = () => {},
+  deleteDescBtn = true,
 }) {
   return (
-    <div>
+    <div style={{ marginTop: "4px" }}>
       <div
         style={{
           display: "flex",
@@ -19,7 +20,9 @@ function InfoSectionInputDesc({
       >
         <p style={FontSize.h2Styles}>Description</p>
         <div>
-          <button onClick={handleOnDeleteDesc}>Delete Description</button>
+          {deleteDescBtn && (
+            <button onClick={handleOnDeleteDesc}>Delete Description</button>
+          )}
         </div>
       </div>
       <div style={FontSize.p2Styles}>

@@ -19,6 +19,9 @@ function InfoInput({
   handleOnAddInfoList = () => {},
   handleOnEditInfoList = () => {},
   handleOnDeleteInfoList = () => {},
+  deleteTitleBtn = true,
+  deleteDescBtn = true,
+  deleteListBtn = true,
 }) {
   const section = useSection();
   const id = section.id;
@@ -41,6 +44,7 @@ function InfoInput({
           <EditableTextbox
             infoText={title}
             handleOnTextboxEdit={handleOnTitleEdit}
+            deleteButton={deleteTitleBtn}
           />
         </div>
       </div>
@@ -81,6 +85,7 @@ function InfoInput({
                 handleOnEditInfoDesc={(newInfo) =>
                   handleOnEditInfoDesc(index, newInfo)
                 }
+                deleteDescBtn={deleteDescBtn}
               />
             );
           } else {
@@ -96,6 +101,7 @@ function InfoInput({
                 handleOnDeleteInfoList={(listIndex) =>
                   handleOnDeleteInfoList(index, listIndex)
                 }
+                deleteListBtn={deleteListBtn}
               />
             );
           }

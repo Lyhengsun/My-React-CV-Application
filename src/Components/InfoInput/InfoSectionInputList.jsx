@@ -12,6 +12,7 @@ function InfoSectionInputList({
   handleOnAddInfoList = () => {},
   handleOnEditInfoList = () => {},
   handleOnDeleteInfoList = () => {},
+  deleteListBtn = true,
 }) {
   //console.log(infos);
 
@@ -31,7 +32,9 @@ function InfoSectionInputList({
           <div style={{ width: "4px" }}></div>
           <div>
             <button onClick={handleOnAddInfoList}>Add Info to list</button>{" "}
-            <button onClick={handleOnDeleteList}>Delete List</button>
+            {deleteListBtn && (
+              <button onClick={handleOnDeleteList}>Delete List</button>
+            )}
           </div>
         </div>
         {infos.infos.map((info, index) => (
