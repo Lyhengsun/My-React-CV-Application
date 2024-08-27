@@ -11,8 +11,6 @@ function InfoTitleInput() {
   const type = section.type;
   const userImg = section.useImg;
 
-  hand
-
   return (
     <InfoInput
       deleteTitleBtn={false}
