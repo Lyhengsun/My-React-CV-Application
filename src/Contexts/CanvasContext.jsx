@@ -50,12 +50,17 @@ function canvasReducer(canvas, action) {
     case "added_section_infos":
       return canvas.map((section) => {
         if (section.id === action.sectionId) {
-          return new SectionModel(section.id, section.title, [
-            ...section.infos,
-            action.infoType === infoType.INFO_DESCRIPTION
-              ? new InfoModel(["", infoType.INFO_DESCRIPTION])
-              : new InfoModel([], infoType.INFO_LIST),
-          ]);
+          return new SectionModel(
+            section.id,
+            section.title,
+            [
+              ...section.infos,
+              action.infoType === infoType.INFO_DESCRIPTION
+                ? new InfoModel(["", infoType.INFO_DESCRIPTION])
+                : new InfoModel([], infoType.INFO_LIST),
+            ],
+            section.type,
+          );
         }
         return section;
       });
@@ -68,7 +73,7 @@ function canvasReducer(canvas, action) {
             section.infos.map((info, index) => {
               if (index === action.sectionInfoIndex) {
                 return new InfoModel(
-                  section.infos[index].infos.map((info, index) => {
+                  info.infos.map((info, index) => {
                     if (index === action.sectionInfoListIndex) {
                       return action.newSectionListInfo;
                     }
@@ -99,16 +104,34 @@ function canvasReducer(canvas, action) {
               }
               return info;
             }),
+            section.type,
           );
         }
         return section;
       });
-      console.log("Old Canvas");
-      console.log(canvas);
-      console.log();
-      console.log("New Canvas");
-      console.log(newCanvas);
       return newCanvas;
+    case "deleted_section_list_info":
+      return canvas.map((section) => {
+        if (section.id === action.sectionId) {
+          return new SectionModel(
+            section.id,
+            section.title,
+            section.infos.map((info, index) => {
+              if (index === action.infoIndex) {
+                return new InfoModel(
+                  info.infos.filter(
+                    (_, index) => index !== action.infoListIndex,
+                  ),
+                  info.type,
+                );
+              }
+              return info;
+            }),
+            section.type,
+          );
+        }
+        return section;
+      });
     default:
       throw Error(`Unknown action type: ${action.type}`);
   }

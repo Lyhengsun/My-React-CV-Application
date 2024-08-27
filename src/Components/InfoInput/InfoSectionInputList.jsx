@@ -10,6 +10,7 @@ function InfoSectionInputList({
   infos,
   handleOnAddInfoList = () => {},
   handleOnEditInfoList = () => {},
+  handleOnDeleteInfoList = () => {},
 }) {
   //console.log(infos);
 
@@ -33,6 +34,7 @@ function InfoSectionInputList({
             key={listId[index]}
             infoText={info}
             handleOnInfoEdit={(newInfo) => handleOnEditInfoList(index, newInfo)}
+            handleOnInfoDelete={() => handleOnDeleteInfoList(index)}
           />
         ))}
       </div>
@@ -40,7 +42,11 @@ function InfoSectionInputList({
   );
 }
 
-function ListItemInput({ infoText = "", handleOnInfoEdit = () => {} }) {
+function ListItemInput({
+  infoText = "",
+  handleOnInfoEdit = () => {},
+  handleOnInfoDelete = () => {},
+}) {
   return (
     <li style={{ ...FontSize.p2Styles, display: "flex" }}>
       <div>
@@ -58,6 +64,7 @@ function ListItemInput({ infoText = "", handleOnInfoEdit = () => {} }) {
         <EditableTextbox
           infoText={infoText}
           handleOnTextboxEdit={handleOnInfoEdit}
+          handleOnTextboxDelete={handleOnInfoDelete}
         />
       </div>
     </li>

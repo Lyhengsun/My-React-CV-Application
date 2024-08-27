@@ -17,6 +17,7 @@ function InfoInput({
   handleOnEditInfoDesc = () => {},
   handleOnAddInfoList = () => {},
   handleOnEditInfoList = () => {},
+  handleOnDeleteInfoList = () => {},
 }) {
   const section = useSection();
   const id = section.id;
@@ -91,6 +92,9 @@ function InfoInput({
                 handleOnAddInfoList={() => handleOnAddInfoList(index)}
                 handleOnEditInfoList={(listIndex, newInfo) =>
                   handleOnEditInfoList(index, listIndex, newInfo)
+                }
+                handleOnDeleteInfoList={(listIndex) =>
+                  handleOnDeleteInfoList(index, listIndex)
                 }
               />
             );

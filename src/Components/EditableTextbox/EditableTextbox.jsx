@@ -2,14 +2,23 @@ import { useRef, useState } from "react";
 
 export default EditableTextbox;
 
-function EditableTextbox({ infoText = "", handleOnTextboxEdit = () => {} }) {
+function EditableTextbox({
+  infoText = "",
+  handleOnTextboxEdit = () => {},
+  handleOnTextboxDelete = () => {},
+}) {
   const [toggleEdit, setToggleEdit] = useState(false);
   const currentInfoText = useRef(infoText);
+
   function handleOnEdit() {
     if (toggleEdit) {
       handleOnTextboxEdit(currentInfoText.current);
     }
     setToggleEdit((e) => !e);
+  }
+
+  function handleOnDelete() {
+    handleOnTextboxDelete();
   }
 
   function handleOnChangeTextInput(e) {
@@ -43,7 +52,7 @@ function EditableTextbox({ infoText = "", handleOnTextboxEdit = () => {} }) {
             <button style={{ marginRight: "5px" }} onClick={handleOnEdit}>
               {toggleEdit ? "Save" : "Edit"}
             </button>
-            <button>Delete</button>
+            <button onClick={handleOnDelete}>Delete</button>
           </div>
         </div>
       </div>
