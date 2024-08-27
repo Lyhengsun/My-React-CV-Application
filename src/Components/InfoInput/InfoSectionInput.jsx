@@ -91,7 +91,7 @@ function InfoSectionInput() {
     <InfoInput
       handleOnTitleEdit={handleOnTitleEdit}
       handleOnAddInfo={handleOnAddInfo}
-      handleOnDeleteList={handleOnDeleteInfo}
+      handleOnDeleteInfo={handleOnDeleteInfo}
       handleOnEditInfoDesc={handleOnEditInfoDesc}
       handleOnAddInfoList={handleOnAddInfoList}
       handleOnEditInfoList={handleOnEditInfoList}

@@ -14,7 +14,7 @@ const componentTempListId = new tempListId();
 function InfoInput({
   handleOnTitleEdit = () => {},
   handleOnAddInfo = () => {},
-  handleOnDeleteList = () => {},
+  handleOnDeleteInfo = () => {},
   handleOnEditInfoDesc = () => {},
   handleOnAddInfoList = () => {},
   handleOnEditInfoList = () => {},
@@ -77,11 +77,9 @@ function InfoInput({
               <InfoSectionInputDesc
                 key={listId[index]}
                 infos={info}
+                handleOnDeleteDesc={() => handleOnDeleteInfo(index)}
                 handleOnEditInfoDesc={(newInfo) =>
-                  handleOnEditInfoDesc(
-                    componentTempListId.getIndexOfId(listId[index]),
-                    newInfo,
-                  )
+                  handleOnEditInfoDesc(index, newInfo)
                 }
               />
             );
@@ -90,7 +88,7 @@ function InfoInput({
               <InfoSectionInputList
                 key={listId[index]}
                 infos={info}
-                handleOnDeleteList={() => handleOnDeleteList(index)}
+                handleOnDeleteList={() => handleOnDeleteInfo(index)}
                 handleOnAddInfoList={() => handleOnAddInfoList(index)}
                 handleOnEditInfoList={(listIndex, newInfo) =>
                   handleOnEditInfoList(index, listIndex, newInfo)

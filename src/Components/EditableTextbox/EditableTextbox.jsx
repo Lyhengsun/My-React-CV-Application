@@ -6,6 +6,7 @@ function EditableTextbox({
   infoText = "",
   handleOnTextboxEdit = () => {},
   handleOnTextboxDelete = () => {},
+  deleteButton = true,
 }) {
   const [toggleEdit, setToggleEdit] = useState(false);
   const currentInfoText = useRef(infoText);
@@ -47,12 +48,16 @@ function EditableTextbox({
         ) : (
           <div style={{ width: "auto" }}>{currentInfoText.current}</div>
         )}{" "}
-        <div style={{ width: "70px" }}>
-          <div style={{ display: "flex" }}>
-            <button style={{ marginRight: "5px" }} onClick={handleOnEdit}>
+        <div style={{ width: "70px", marginLeft: "4px" }}>
+          <div style={{ display: "flex", justifyContent: "end" }}>
+            <button onClick={handleOnEdit}>
               {toggleEdit ? "Save" : "Edit"}
             </button>
-            <button onClick={handleOnDelete}>Delete</button>
+            {deleteButton && (
+              <button style={{ marginLeft: "5px" }} onClick={handleOnDelete}>
+                Delete
+              </button>
+            )}
           </div>
         </div>
       </div>
