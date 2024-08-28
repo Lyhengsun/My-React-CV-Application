@@ -20,9 +20,19 @@ function InfoTitleInput() {
     });
   }
 
+  function handleOnEditInfoDesc(infoIndex, newInfo) {
+    canvasDispatch({
+      type: "edited_section_infos_desc",
+      sectionId: id,
+      infoIndex: infoIndex,
+      newInfo: newInfo,
+    });
+  }
+
   return (
     <InfoInput
       handleOnTitleEdit={handleOnTitleEdit}
+      handleOnEditInfoDesc={handleOnEditInfoDesc}
       addInfoBtn={false}
       deleteTitleBtn={false}
       deleteDescBtn={false}
