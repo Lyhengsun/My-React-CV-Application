@@ -1,5 +1,4 @@
-import SectionModel from "../../Models/SectionModel";
-import { InfoModel, infoType } from "../../Models/InfoModel";
+import { infoType } from "../../Models/InfoModel";
 import InfoInput from "./InfoInput";
 import { useCanvasDispatch, useSection } from "../../Contexts";
 
@@ -9,22 +8,13 @@ function InfoSectionInput() {
   const canvasDispatch = useCanvasDispatch();
   const section = useSection();
   const id = section.id;
-  const title = section.title;
-  const infos = section.infos;
-
-  //console.log(infos);
-
-  function handleOnEdit(newSection) {
-    const id = newSection.id;
-    canvasDispatch({
-      type: "edited_section",
-      sectionId: id,
-      newSection: newSection,
-    });
-  }
 
   function handleOnTitleEdit(newTitle) {
-    handleOnEdit(new SectionModel(id, newTitle, infos));
+    canvasDispatch({
+      type: "edited_section_title",
+      sectionId: id,
+      newTitle: newTitle,
+    });
   }
 
   function handleOnAddInfo(infoType) {
@@ -44,19 +34,12 @@ function InfoSectionInput() {
   }
 
   function handleOnEditInfoDesc(infoIndex, newInfo) {
-    handleOnEdit(
-      new SectionModel(
-        id,
-        title,
-        infos.map((info, index) => {
-          if (index === infoIndex) {
-            return new InfoModel([newInfo], infoType.INFO_DESCRIPTION);
-          } else {
-            return info;
-          }
-        }),
-      ),
-    );
+    canvasDispatch({
+      type: "edited_section_infos_desc",
+      sectionId: id,
+      infoIndex: infoIndex,
+      newInfo: newInfo,
+    });
   }
 
   function handleOnAddInfoList(infoIndex) {

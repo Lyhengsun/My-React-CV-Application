@@ -39,13 +39,17 @@ function canvasReducer(canvas, action) {
       ];
     case "deleted_section":
       return canvas.filter((section) => section.id != action.sectionId);
-    case "edited_section":
+    case "edited_section_title":
       return canvas.map((section) => {
         if (section.id === action.sectionId) {
-          return action.newSection;
-        } else {
-          return section;
+          return new SectionModel(
+            section.id,
+            action.newTitle,
+            section.infos,
+            section.type,
+          );
         }
+        return section;
       });
     case "added_section_infos":
       return canvas.map((section) => {
@@ -100,8 +104,28 @@ function canvasReducer(canvas, action) {
         }
         return section;
       });
+    case "edited_section_infos_desc":
+      return canvas.map((section) => {
+        if (section.id === action.sectionId) {
+          return new SectionModel(
+            section.id,
+            section.title,
+            section.infos.map((info, index) => {
+              if (index === action.infoIndex) {
+                return new InfoModel(
+                  [action.newInfo],
+                  infoType.INFO_DESCRIPTION,
+                );
+              }
+              return info;
+            }),
+            section.type,
+          );
+        }
+        return section;
+      });
     case "added_section_new_list_info":
-      const newCanvas = canvas.map((section) => {
+      return canvas.map((section) => {
         if (section.id === action.sectionId) {
           return new SectionModel(
             section.id,
@@ -121,7 +145,6 @@ function canvasReducer(canvas, action) {
         }
         return section;
       });
-      return newCanvas;
     case "deleted_section_list_info":
       return canvas.map((section) => {
         if (section.id === action.sectionId) {
