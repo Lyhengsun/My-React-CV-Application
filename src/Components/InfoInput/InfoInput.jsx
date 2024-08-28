@@ -19,6 +19,7 @@ function InfoInput({
   handleOnAddInfoList = () => {},
   handleOnEditInfoList = () => {},
   handleOnDeleteInfoList = () => {},
+  addInfoBtn = true,
   deleteTitleBtn = true,
   deleteDescBtn = true,
   deleteListBtn = true,
@@ -48,32 +49,34 @@ function InfoInput({
           />
         </div>
       </div>
-      <div style={{ display: "flex" }}>
-        <select
-          name=""
-          id=""
-          defaultValue={infoInputTypeSelect.current}
-          onChange={(e) => {
-            infoInputTypeSelect.current = e.target.value;
-            console.log(infoInputTypeSelect.current);
-          }}
-        >
-          <option value="Desc">Description</option>
-          <option value="List">Info List</option>
-        </select>{" "}
-        <div style={{ width: "4px" }}></div>
-        <button
-          onClick={() => {
-            handleOnAddInfo(
-              infoInputTypeSelect.current === "Desc"
-                ? infoType.INFO_DESCRIPTION
-                : infoType.INFO_LIST,
-            );
-          }}
-        >
-          Add Info
-        </button>
-      </div>
+      {addInfoBtn && (
+        <div style={{ display: "flex" }}>
+          <select
+            name=""
+            id=""
+            defaultValue={infoInputTypeSelect.current}
+            onChange={(e) => {
+              infoInputTypeSelect.current = e.target.value;
+              console.log(infoInputTypeSelect.current);
+            }}
+          >
+            <option value="Desc">Description</option>
+            <option value="List">Info List</option>
+          </select>{" "}
+          <div style={{ width: "4px" }}></div>
+          <button
+            onClick={() => {
+              handleOnAddInfo(
+                infoInputTypeSelect.current === "Desc"
+                  ? infoType.INFO_DESCRIPTION
+                  : infoType.INFO_LIST,
+              );
+            }}
+          >
+            Add Info
+          </button>
+        </div>
+      )}
       <div>
         {infos.map((info, index) => {
           if (info.type === infoType.INFO_DESCRIPTION) {

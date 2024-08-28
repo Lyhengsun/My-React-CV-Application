@@ -175,7 +175,6 @@ function canvasReducer(canvas, action) {
 const initialCanvas = [
   new TitleSectionModel(0, "Guest", [
     new InfoModel(["A Student"], infoType.INFO_DESCRIPTION),
-    new InfoModel(["I'm gay", "I am hardworking"], infoType.INFO_LIST),
   ]),
   new SectionModel(1, "Education", [
     new InfoModel(["Study at Hogwarts"], infoType.INFO_DESCRIPTION),
