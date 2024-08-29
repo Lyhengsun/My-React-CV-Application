@@ -29,6 +29,11 @@ function CanvasProvider({ children }) {
 function canvasReducer(canvas, action) {
   const sections = canvas.sections;
   switch (action.type) {
+    case "edited_user_image":
+      return {
+        userImage: action.newUserImage,
+        sections: sections,
+      };
     case "added_section":
       return {
         userImage: canvas.userImage,

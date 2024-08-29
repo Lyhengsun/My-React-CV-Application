@@ -23,6 +23,7 @@ function InfoInput({
   deleteTitleBtn = true,
   deleteDescBtn = true,
   deleteListBtn = true,
+  style = {},
 }) {
   const section = useSection();
   const id = section.id;
@@ -35,7 +36,7 @@ function InfoInput({
   const infoInputTypeSelect = useRef("Desc");
 
   return (
-    <div className={styles.InfoSectionInput}>
+    <div className={styles.InfoSectionInput} style={style}>
       <p style={FontSize.h1Styles}>{capitalize(type)}</p>
       <div style={{ display: "flex" }}>
         <span style={{ display: "inline-block", marginRight: "5px" }}>
