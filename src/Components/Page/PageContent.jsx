@@ -5,7 +5,8 @@ import TitlePageSection from "./TitlePageSection";
 export default PageContent;
 
 function PageContent() {
-  const sections = useCanvas();
+  const canvas = useCanvas();
+  const sections = canvas.sections;
 
   //console.log(sections);
 

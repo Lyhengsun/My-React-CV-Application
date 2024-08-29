@@ -57,7 +57,7 @@ function InfoInput({
             defaultValue={infoInputTypeSelect.current}
             onChange={(e) => {
               infoInputTypeSelect.current = e.target.value;
-              console.log(infoInputTypeSelect.current);
+              //console.log(infoInputTypeSelect.current);
             }}
           >
             <option value="Desc">Description</option>

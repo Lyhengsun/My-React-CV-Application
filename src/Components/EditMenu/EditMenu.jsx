@@ -6,7 +6,8 @@ import styles from "./EditMenu.module.css";
 export default EditMenu;
 
 function EditMenu() {
-  const sections = useCanvas();
+  const canvas = useCanvas();
+  const sections = canvas.sections;
   const dispatch = useCanvasDispatch();
 
   function handleOnAdd() {
