@@ -1,11 +1,14 @@
+import { useCanvas, useSection } from "../../Contexts";
 import FontSize from "../../Theme/FontSize";
 
 export default TitlePageSection;
 
-function TitlePageSection({ sectionInfo }) {
-  const id = sectionInfo.id;
-  const title = sectionInfo.title;
-  const desc = sectionInfo.infos[0].infos[0];
+function TitlePageSection() {
+  const canvas = useCanvas();
+  const userImage = canvas.userImage;
+  const section = useSection();
+  const title = section.title;
+  const desc = section.infos[0].infos[0];
 
   //console.log(infos);
 
@@ -21,11 +24,26 @@ function TitlePageSection({ sectionInfo }) {
             style={{
               borderRadius: "50%",
               width: "100px",
-              aspectRatio: "1",
+              height: "100px",
               backgroundColor: "red",
               marginRight: "10px",
+              overflow: "hidden",
             }}
-          ></div>
+          >
+            {userImage && (
+              <img
+                src={URL.createObjectURL(userImage)}
+                alt=""
+                width={"100%"}
+                height={"100%"}
+                style={{
+                  display: "block",
+                  textAlign: "center",
+                  objectFit: "cover",
+                }}
+              />
+            )}
+          </div>
         </div>
         <div>
           <p style={FontSize.h1Styles}>{title}</p>

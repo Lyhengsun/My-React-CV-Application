@@ -1,4 +1,4 @@
-import { useCanvas } from "../../Contexts";
+import { CanvasProvider, SectionProvider, useCanvas } from "../../Contexts";
 import PageSection from "./PageSection";
 import TitlePageSection from "./TitlePageSection";
 
@@ -16,11 +16,20 @@ function PageContent() {
         let content;
         switch (section.type) {
           case "title":
-            content = <TitlePageSection sectionInfo={section} />;
+            content = (
+              <SectionProvider section={section}>
+                <TitlePageSection />
+              </SectionProvider>
+            );
             break;
 
           default:
-            content = <PageSection sectionInfo={section} />;
+            content = (
+              <SectionProvider section={section}>
+                <PageSection sectionInfo={section} />
+              </SectionProvider>
+            );
+
             break;
         }
 

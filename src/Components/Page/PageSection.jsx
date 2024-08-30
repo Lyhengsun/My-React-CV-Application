@@ -1,3 +1,4 @@
+import { useSection } from "../../Contexts";
 import { infoType } from "../../Models/InfoModel";
 import FontSize from "../../Theme/FontSize";
 import { tempListId } from "../../Utils/utils";
@@ -8,10 +9,10 @@ export default PageSection;
 
 const componentTempListId = new tempListId();
 
-function PageSection({ sectionInfo }) {
-  const id = sectionInfo.id;
-  const title = sectionInfo.title;
-  const infos = sectionInfo.infos;
+function PageSection() {
+  const section = useSection();
+  const title = section.title;
+  const infos = section.infos;
   const listId = componentTempListId.getTempListId(infos);
 
   //console.log(infos);

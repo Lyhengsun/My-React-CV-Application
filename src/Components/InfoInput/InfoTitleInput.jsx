@@ -15,8 +15,6 @@ function InfoTitleInput() {
 
   const userImage = canvas.userImage;
 
-  console.log(userImage);
-
   function handleOnTitleEdit(newTitle) {
     canvasDispatch({
       type: "edited_section_title",
@@ -34,10 +32,10 @@ function InfoTitleInput() {
     });
   }
 
-  function handleOnChangeUserImage(e) {
+  function handleOnChangeUserImage(newUserImage) {
     canvasDispatch({
       type: "edited_user_image",
-      newUserImage: e.target.files[0],
+      newUserImage: newUserImage,
     });
   }
 
@@ -69,7 +67,24 @@ function InfoTitleInput() {
             />
           )}
         </div>
-        <input type="file" onChange={handleOnChangeUserImage} />
+        <div
+          style={{
+            backgroundColor: "lightgray",
+            padding: "5px",
+            borderRadius: "10px",
+            display: "flex",
+            justifyContent: "center",
+            marginTop: "5px",
+          }}
+        >
+          <div style={{ width: "70%", overflow: "clip" }}>
+            <input
+              type="file"
+              onChange={(e) => handleOnChangeUserImage(e.target.files[0])}
+            />
+          </div>
+          <button onClick={() => handleOnChangeUserImage(null)}>Remove</button>
+        </div>
       </div>
       <InfoInput
         handleOnTitleEdit={handleOnTitleEdit}
