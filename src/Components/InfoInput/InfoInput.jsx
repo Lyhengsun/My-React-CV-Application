@@ -7,11 +7,15 @@ import EditableTextbox from "../EditableTextbox/EditableTextbox";
 import styles from "./InfoSectionInput.module.css";
 import InfoSectionInputDesc from "./InfoSectionInputDesc";
 import InfoSectionInputList from "./InfoSectionInputList";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronUp, faTrash } from "@fortawesome/free-solid-svg-icons";
 export default InfoInput;
 
 const componentTempListId = new tempListId();
 
 function InfoInput({
+  handleOnSectionMoveUp = () => {},
+  handleOnDeleteSection = () => {},
   handleOnTitleEdit = () => {},
   handleOnAddInfo = () => {},
   handleOnDeleteInfo = () => {},
@@ -20,6 +24,8 @@ function InfoInput({
   handleOnEditInfoList = () => {},
   handleOnDeleteInfoList = () => {},
   addInfoBtn = true,
+  moveSectionUpBtn = true,
+  deleteSectionBtn = true,
   deleteTitleBtn = true,
   deleteDescBtn = true,
   deleteListBtn = true,
@@ -37,7 +43,27 @@ function InfoInput({
 
   return (
     <div className={styles.InfoSectionInput} style={style}>
-      <p style={FontSize.h1Styles}>{capitalize(type)}</p>
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <p style={FontSize.h1Styles}>{capitalize(type)}</p>
+        <div>
+          {moveSectionUpBtn && (
+            <button
+              style={{ padding: "0px 4px" }}
+              onClick={handleOnSectionMoveUp}
+            >
+              <FontAwesomeIcon icon={faChevronUp} />
+            </button>
+          )}
+          {deleteSectionBtn && (
+            <button
+              style={{ padding: "0px 4px", marginLeft: "4px" }}
+              onClick={handleOnDeleteSection}
+            >
+              <FontAwesomeIcon icon={faTrash} />
+            </button>
+          )}
+        </div>
+      </div>
       <div style={{ display: "flex" }}>
         <span style={{ display: "inline-block", marginRight: "5px" }}>
           Title:

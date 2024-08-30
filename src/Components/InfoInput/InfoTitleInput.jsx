@@ -73,6 +73,8 @@ function InfoTitleInput() {
         handleOnTitleEdit={handleOnTitleEdit}
         handleOnEditInfoDesc={handleOnEditInfoDesc}
         addInfoBtn={false}
+        moveSectionUpBtn={false}
+        deleteSectionBtn={false}
         deleteTitleBtn={false}
         deleteDescBtn={false}
         deleteListBtn={false}

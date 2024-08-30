@@ -11,11 +11,8 @@ function EditMenu() {
   const dispatch = useCanvasDispatch();
 
   function handleOnAdd() {
-    const newId = sections[sections.length - 1].id + 1;
-
     dispatch({
       type: "added_section",
-      sectionId: newId,
       sectionTitle: "Title",
       sectionInfo: [],
     });

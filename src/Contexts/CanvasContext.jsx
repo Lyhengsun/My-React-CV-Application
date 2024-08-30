@@ -14,6 +14,31 @@ export function useCanvasDispatch() {
 
 const CanvasContext = createContext(null);
 const CanvasDispatchContext = createContext(null);
+const initialCanvas = {
+  userImage: null,
+  sections: [
+    new TitleSectionModel(0, "Guest", [
+      new InfoModel(["A Student"], infoType.INFO_DESCRIPTION),
+    ]),
+    new SectionModel(1, "Education", [
+      new InfoModel(["Study at Hogwarts"], infoType.INFO_DESCRIPTION),
+      new InfoModel(
+        [
+          "Got bachelor's degree in computer science from my university",
+          "Got bachelor's degree in computer science from other university",
+        ],
+        infoType.INFO_LIST,
+      ),
+    ]),
+    new SectionModel(2, "Experience", [
+      new InfoModel(
+        ["Got work on an important project once for google"],
+        infoType.INFO_LIST,
+      ),
+    ]),
+  ],
+};
+let latestId = initialCanvas.sections[initialCanvas.sections.length - 1].id;
 
 function CanvasProvider({ children }) {
   const [canvas, dispatch] = useReducer(canvasReducer, initialCanvas);
@@ -35,19 +60,44 @@ function canvasReducer(canvas, action) {
         sections: sections,
       };
     case "added_section":
+      latestId += 1;
+      console.log(sections);
       return {
         userImage: canvas.userImage,
         sections: [
           ...sections,
-          new SectionModel(
-            action.sectionId,
-            action.sectionTitle,
-            action.sectionInfo,
-          ),
+          new SectionModel(latestId, action.sectionTitle, action.sectionInfo),
         ],
       };
+    case "moved_up_section":
+      const sectionIndex = sections.findIndex(
+        (section) => section.id === action.sectionId,
+      );
+      const oldSection = sections[sectionIndex - 1];
+      if (sectionIndex - 1 > 0) {
+        const newSections = sections.map((section, index) => {
+          if (index === sectionIndex - 1) {
+            return sections[sectionIndex];
+          }
+          if (index === sectionIndex) {
+            return oldSection;
+          }
+          return section;
+        });
+        return {
+          userImage: canvas.userImage,
+          sections: newSections,
+        };
+      }
+      return {
+        userImage: canvas.userImage,
+        sections: sections,
+      };
     case "deleted_section":
-      return sections.filter((section) => section.id != action.sectionId);
+      return {
+        userImage: canvas.userImage,
+        sections: sections.filter((section) => section.id != action.sectionId),
+      };
     case "edited_section_title":
       return {
         userImage: canvas.userImage,
@@ -201,28 +251,3 @@ function canvasReducer(canvas, action) {
       throw Error(`Unknown action type: ${action.type}`);
   }
 }
-
-const initialCanvas = {
-  userImage: null,
-  sections: [
-    new TitleSectionModel(0, "Guest", [
-      new InfoModel(["A Student"], infoType.INFO_DESCRIPTION),
-    ]),
-    new SectionModel(1, "Education", [
-      new InfoModel(["Study at Hogwarts"], infoType.INFO_DESCRIPTION),
-      new InfoModel(
-        [
-          "Got bachelor's degree in computer science from my university",
-          "Got bachelor's degree in computer science from other university",
-        ],
-        infoType.INFO_LIST,
-      ),
-    ]),
-    new SectionModel(2, "Experience", [
-      new InfoModel(
-        ["Got work on an important project once for google"],
-        infoType.INFO_LIST,
-      ),
-    ]),
-  ],
-};

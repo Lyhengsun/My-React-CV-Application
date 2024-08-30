@@ -9,6 +9,20 @@ function InfoSectionInput() {
   const section = useSection();
   const id = section.id;
 
+  function handleOnSectionMoveUp() {
+    canvasDispatch({
+      type: "moved_up_section",
+      sectionId: id,
+    });
+  }
+
+  function handleOnDeleteSection() {
+    canvasDispatch({
+      type: "deleted_section",
+      sectionId: id,
+    });
+  }
+
   function handleOnTitleEdit(newTitle) {
     canvasDispatch({
       type: "edited_section_title",
@@ -72,6 +86,8 @@ function InfoSectionInput() {
 
   return (
     <InfoInput
+      handleOnSectionMoveUp={handleOnSectionMoveUp}
+      handleOnDeleteSection={handleOnDeleteSection}
       handleOnTitleEdit={handleOnTitleEdit}
       handleOnAddInfo={handleOnAddInfo}
       handleOnDeleteInfo={handleOnDeleteInfo}

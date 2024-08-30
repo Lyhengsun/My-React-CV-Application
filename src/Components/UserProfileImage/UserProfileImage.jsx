@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBan } from "@fortawesome/free-solid-svg-icons";
+import { secondaryColor } from "../../Theme/Colors";
 
 export default UserProfileImage;
 
@@ -15,7 +16,7 @@ function UserProfileImage({
         width: size,
         height: size,
         borderRadius: "50%",
-        backgroundColor: "red",
+        backgroundColor: secondaryColor(75),
         overflow: "hidden",
         ...style,
       }}
