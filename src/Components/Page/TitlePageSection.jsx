@@ -1,5 +1,6 @@
 import { useCanvas, useSection } from "../../Contexts";
 import FontSize from "../../Theme/FontSize";
+import { UserProfileImage } from "../UserProfileImage";
 
 export default TitlePageSection;
 
@@ -20,30 +21,10 @@ function TitlePageSection() {
     <div style={styles}>
       <div style={{ display: "flex", alignItems: "center" }}>
         <div style={{ marginBottom: "10px" }}>
-          <div
-            style={{
-              borderRadius: "50%",
-              width: "100px",
-              height: "100px",
-              backgroundColor: "red",
-              marginRight: "10px",
-              overflow: "hidden",
-            }}
-          >
-            {userImage && (
-              <img
-                src={URL.createObjectURL(userImage)}
-                alt=""
-                width={"100%"}
-                height={"100%"}
-                style={{
-                  display: "block",
-                  textAlign: "center",
-                  objectFit: "cover",
-                }}
-              />
-            )}
-          </div>
+          <UserProfileImage
+            userImage={userImage}
+            style={{ marginRight: "10px" }}
+          />
         </div>
         <div>
           <p style={FontSize.h1Styles}>{title}</p>

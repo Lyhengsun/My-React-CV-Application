@@ -1,4 +1,5 @@
 import { useCanvas, useCanvasDispatch, useSection } from "../../Contexts";
+import { UserProfileImage } from "../UserProfileImage";
 import InfoInput from "./InfoInput";
 
 export default InfoTitleInput;
@@ -48,25 +49,7 @@ function InfoTitleInput() {
           alignItems: "center",
         }}
       >
-        <div
-          style={{
-            width: "100px",
-            height: "100px",
-            borderRadius: "50%",
-            backgroundColor: "red",
-            overflow: "hidden",
-          }}
-        >
-          {userImage && (
-            <img
-              src={URL.createObjectURL(userImage)}
-              alt=""
-              width={"100%"}
-              height={"100%"}
-              style={{ objectFit: "cover" }}
-            />
-          )}
-        </div>
+        <UserProfileImage userImage={userImage} />
         <div
           style={{
             backgroundColor: "lightgray",

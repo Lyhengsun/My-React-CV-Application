@@ -2,6 +2,11 @@ import { useState } from "react";
 import styles from "./EditingDrawer.module.css";
 import { primaryColor, secondaryColor } from "../../Theme/Colors";
 import EditMenu from "../EditMenu/EditMenu";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faChevronLeft,
+  faChevronRight,
+} from "@fortawesome/free-solid-svg-icons";
 
 export default EditingDrawer;
 
@@ -26,8 +31,17 @@ function EditingDrawer({ toggle = false, setToggle = () => {} }) {
           style={{
             backgroundColor: secondaryColor(),
             borderColor: primaryColor,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
           }}
-        ></div>
+        >
+          {toggle ? (
+            <FontAwesomeIcon icon={faChevronLeft} />
+          ) : (
+            <FontAwesomeIcon icon={faChevronRight} />
+          )}
+        </div>
       </div>
       {toggle && <EditMenu />}
     </div>
