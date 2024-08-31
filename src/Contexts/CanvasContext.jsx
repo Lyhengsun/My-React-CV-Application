@@ -61,7 +61,7 @@ function canvasReducer(canvas, action) {
       };
     case "added_section":
       latestId += 1;
-      console.log(sections);
+      //console.log(sections);
       return {
         userImage: canvas.userImage,
         sections: [
@@ -124,7 +124,7 @@ function canvasReducer(canvas, action) {
               [
                 ...section.infos,
                 action.infoType === infoType.INFO_DESCRIPTION
-                  ? new InfoModel(["", infoType.INFO_DESCRIPTION])
+                  ? new InfoModel([""], infoType.INFO_DESCRIPTION)
                   : new InfoModel([], infoType.INFO_LIST),
               ],
               section.type,
@@ -151,6 +151,7 @@ function canvasReducer(canvas, action) {
                       return info;
                     }),
                     action.infoType,
+                    info.bold,
                   );
                 }
                 return info;
@@ -186,8 +187,9 @@ function canvasReducer(canvas, action) {
               section.infos.map((info, index) => {
                 if (index === action.infoIndex) {
                   return new InfoModel(
-                    [action.newInfo],
+                    action.newInfo ? [action.newInfo] : info.infos,
                     infoType.INFO_DESCRIPTION,
+                    action.toggleBold ? !info.bold : info.bold,
                   );
                 }
                 return info;
@@ -212,6 +214,7 @@ function canvasReducer(canvas, action) {
                   return new InfoModel(
                     [...oldInfoModel.infos, ""],
                     oldInfoModel.type,
+                    oldInfoModel.bold,
                   );
                 }
                 return info;
@@ -237,6 +240,7 @@ function canvasReducer(canvas, action) {
                       (_, index) => index !== action.infoListIndex,
                     ),
                     info.type,
+                    info.bold,
                   );
                 }
                 return info;

@@ -21,4 +21,8 @@ export class tempListId {
   getIndexOfId(id) {
     return this.tempListId.indexOf(id);
   }
+
+  removeId(index) {
+    this.tempListId = this.tempListId.filter((_, i) => i !== index);
+  }
 }

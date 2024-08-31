@@ -49,15 +49,20 @@ function InfoTitleInput() {
           alignItems: "center",
         }}
       >
-        <UserProfileImage userImage={userImage} />
+        <UserProfileImage
+          userImage={userImage}
+          style={{ border: "1px solid black" }}
+        />
         <div
           style={{
             backgroundColor: "lightgray",
             padding: "5px",
+            border: "1px solid black",
             borderRadius: "10px",
             display: "flex",
             justifyContent: "center",
             marginTop: "5px",
+            marginBottom: "8px",
           }}
         >
           <div style={{ width: "70%", overflow: "clip" }}>

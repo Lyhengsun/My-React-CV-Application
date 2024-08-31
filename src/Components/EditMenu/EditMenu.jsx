@@ -1,4 +1,5 @@
 import { SectionProvider, useCanvas, useCanvasDispatch } from "../../Contexts";
+import { secondaryColor } from "../../Theme/Colors";
 import InfoSectionInput from "../InfoInput/InfoSectionInput";
 import InfoTitleInput from "../InfoInput/InfoTitleInput";
 import styles from "./EditMenu.module.css";
@@ -21,7 +22,7 @@ function EditMenu() {
   //console.log(sections);
 
   return (
-    <div className={styles.EditMenuContainer}>
+    <div className={styles.EditMenuContainer} style={{backgroundColor: secondaryColor()}}>
       {sections.map((section) => {
         if (section.type === "title") {
           return (

@@ -56,6 +56,15 @@ function InfoSectionInput() {
     });
   }
 
+  function handleOnBoldInfoDesc(infoIndex) {
+    canvasDispatch({
+      type: "edited_section_infos_desc",
+      sectionId: id,
+      infoIndex: infoIndex,
+      toggleBold: true,
+    });
+  }
+
   function handleOnAddInfoList(infoIndex) {
     canvasDispatch({
       type: "added_section_new_list_info",
@@ -92,6 +101,7 @@ function InfoSectionInput() {
       handleOnAddInfo={handleOnAddInfo}
       handleOnDeleteInfo={handleOnDeleteInfo}
       handleOnEditInfoDesc={handleOnEditInfoDesc}
+      handleOnBoldInfoDesc={handleOnBoldInfoDesc}
       handleOnAddInfoList={handleOnAddInfoList}
       handleOnEditInfoList={handleOnEditInfoList}
       handleOnDeleteInfoList={handleOnDeleteInfoList}

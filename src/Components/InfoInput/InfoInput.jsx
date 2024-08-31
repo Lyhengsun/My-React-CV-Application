@@ -4,7 +4,7 @@ import { infoType } from "../../Models/InfoModel";
 import FontSize from "../../Theme/FontSize";
 import { capitalize, tempListId } from "../../Utils/utils";
 import EditableTextbox from "../EditableTextbox/EditableTextbox";
-import styles from "./InfoSectionInput.module.css";
+import styles from "./InfoInput.module.css";
 import InfoSectionInputDesc from "./InfoSectionInputDesc";
 import InfoSectionInputList from "./InfoSectionInputList";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -19,6 +19,7 @@ function InfoInput({
   handleOnTitleEdit = () => {},
   handleOnAddInfo = () => {},
   handleOnDeleteInfo = () => {},
+  handleOnBoldInfoDesc = () => {},
   handleOnEditInfoDesc = () => {},
   handleOnAddInfoList = () => {},
   handleOnEditInfoList = () => {},
@@ -42,7 +43,7 @@ function InfoInput({
   const infoInputTypeSelect = useRef("Desc");
 
   return (
-    <div className={styles.InfoSectionInput} style={style}>
+    <div className={styles.InfoInput} style={style}>
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <p style={FontSize.h1Styles}>{capitalize(type)}</p>
         <div>
@@ -72,6 +73,7 @@ function InfoInput({
           <EditableTextbox
             infoText={title}
             handleOnTextboxEdit={handleOnTitleEdit}
+            boldLetterButton={false}
             deleteButton={deleteTitleBtn}
           />
         </div>
@@ -115,6 +117,7 @@ function InfoInput({
                 handleOnEditInfoDesc={(newInfo) =>
                   handleOnEditInfoDesc(index, newInfo)
                 }
+                handleOnBoldInfoDesc={() => handleOnBoldInfoDesc(index)}
                 deleteDescBtn={deleteDescBtn}
               />
             );

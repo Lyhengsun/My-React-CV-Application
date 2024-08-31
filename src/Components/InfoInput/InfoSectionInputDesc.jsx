@@ -7,6 +7,7 @@ function InfoSectionInputDesc({
   infos,
   handleOnDeleteDesc = () => {},
   handleOnEditInfoDesc = () => {},
+  handleOnBoldInfoDesc = () => {},
   deleteDescBtn = true,
 }) {
   return (
@@ -29,6 +30,7 @@ function InfoSectionInputDesc({
         <EditableTextbox
           infoText={infos.infos[0]}
           handleOnTextboxEdit={handleOnEditInfoDesc}
+          handleOnTextboxBold={handleOnBoldInfoDesc}
           deleteButton={false}
         />
       </div>

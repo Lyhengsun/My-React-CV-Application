@@ -17,6 +17,12 @@ function InfoSectionInputList({
   //console.log(infos);
 
   const listId = componentTempListId.getTempListId(infos.infos);
+
+  function handleOnDelete(index) {
+    handleOnDeleteInfoList(index);
+    componentTempListId.removeId(index);
+  }
+
   return (
     <div style={{ marginTop: "4px" }}>
       <div>
@@ -42,7 +48,7 @@ function InfoSectionInputList({
             key={listId[index]}
             infoText={info}
             handleOnInfoEdit={(newInfo) => handleOnEditInfoList(index, newInfo)}
-            handleOnInfoDelete={() => handleOnDeleteInfoList(index)}
+            handleOnInfoDelete={() => handleOnDelete(index)}
           />
         ))}
       </div>
@@ -73,6 +79,7 @@ function ListItemInput({
           infoText={infoText}
           handleOnTextboxEdit={handleOnInfoEdit}
           handleOnTextboxDelete={handleOnInfoDelete}
+          boldLetterButton={false}
         />
       </div>
     </li>
