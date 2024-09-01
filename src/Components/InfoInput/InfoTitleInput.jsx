@@ -83,6 +83,7 @@ function InfoTitleInput() {
         deleteTitleBtn={false}
         deleteDescBtn={false}
         deleteListBtn={false}
+        infoDescBoldBtn={false}
         style={{ borderTop: "none" }}
       />
     </div>

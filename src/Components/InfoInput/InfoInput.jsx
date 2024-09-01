@@ -30,6 +30,7 @@ function InfoInput({
   deleteTitleBtn = true,
   deleteDescBtn = true,
   deleteListBtn = true,
+  infoDescBoldBtn = true,
   style = {},
 }) {
   const section = useSection();
@@ -118,6 +119,7 @@ function InfoInput({
                   handleOnEditInfoDesc(index, newInfo)
                 }
                 handleOnBoldInfoDesc={() => handleOnBoldInfoDesc(index)}
+                boldDescBtn={infoDescBoldBtn}
                 deleteDescBtn={deleteDescBtn}
               />
             );

@@ -1,4 +1,4 @@
-import { CanvasProvider, SectionProvider, useCanvas } from "../../Contexts";
+import { SectionProvider, useCanvas } from "../../Contexts";
 import PageSection from "./PageSection";
 import TitlePageSection from "./TitlePageSection";
 

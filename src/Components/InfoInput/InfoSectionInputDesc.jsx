@@ -8,6 +8,7 @@ function InfoSectionInputDesc({
   handleOnDeleteDesc = () => {},
   handleOnEditInfoDesc = () => {},
   handleOnBoldInfoDesc = () => {},
+  boldDescBtn = true,
   deleteDescBtn = true,
 }) {
   return (
@@ -31,6 +32,7 @@ function InfoSectionInputDesc({
           infoText={infos.infos[0]}
           handleOnTextboxEdit={handleOnEditInfoDesc}
           handleOnTextboxBold={handleOnBoldInfoDesc}
+          boldLetterButton={boldDescBtn}
           deleteButton={false}
         />
       </div>
