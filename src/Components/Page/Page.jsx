@@ -1,19 +1,10 @@
-import html2canvas from "html2canvas";
 import styles from "./Page.module.css";
 import PageContent from "./PageContent";
-import jsPDF from "jspdf";
 
 export default Page;
 
 function Page() {
   function handleOnClickPrint() {
-    //const input = document.getElementById("pageToPrint");
-    //html2canvas(input).then((canvas) => {
-    //  const imgData = canvas.toDataURL("image/png");
-    //  const pdf = new jsPDF();
-    //  pdf.addImage(imgData, "JPEG", 0, 0);
-    //  pdf.save("download.pdf");
-    //});
     window.print();
   }
 
