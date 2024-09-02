@@ -1,5 +1,6 @@
 import FontSize from "../../Theme/FontSize";
 import EditableTextbox from "../EditableTextbox/EditableTextbox";
+import { MyButton } from "../MyButton";
 
 export default InfoSectionInputDesc;
 
@@ -23,7 +24,7 @@ function InfoSectionInputDesc({
         <p style={FontSize.h2Styles}>Description</p>
         <div>
           {deleteDescBtn && (
-            <button onClick={handleOnDeleteDesc}>Delete Description</button>
+            <MyButton onClick={handleOnDeleteDesc}>Delete Description</MyButton>
           )}
         </div>
       </div>

@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import { MyButton } from "../MyButton";
 
 export default EditableTextbox;
 
@@ -59,27 +60,26 @@ function EditableTextbox({
         <div style={{ marginLeft: "4px" }}>
           <div style={{ display: "flex", justifyContent: "end" }}>
             {boldLetterButton && (
-              <button
+              <MyButton
                 style={{
                   fontWeight: "bold",
                   paddingRight: "4px",
                   paddingLeft: "4px",
                   border: "1px solid grey",
                   borderRadius: "4px",
-                  backgroundColor: bold ? "grey" : "",
                 }}
                 onClick={handleOnBold}
               >
                 B
-              </button>
+              </MyButton>
             )}
-            <button style={{ marginLeft: "5px" }} onClick={handleOnEdit}>
+            <MyButton style={{ marginLeft: "4px" }} onClick={handleOnEdit}>
               {toggleEdit ? "Save" : "Edit"}
-            </button>
+            </MyButton>
             {deleteButton && (
-              <button style={{ marginLeft: "5px" }} onClick={handleOnDelete}>
+              <MyButton style={{ marginLeft: "4px" }} onClick={handleOnDelete}>
                 Delete
-              </button>
+              </MyButton>
             )}
           </div>
         </div>

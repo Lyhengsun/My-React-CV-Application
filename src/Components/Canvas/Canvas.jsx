@@ -25,7 +25,7 @@ function Canvas({ toggle = false, setToggle = () => {} }) {
     >
       <Page />
       <MyButton
-        style={{ position: "absolute", top: "10px", right: "10px" }}
+        style={{ position: "absolute", top: "10px", right: "10px", fontSize: "14px"}}
         onClick={handleOnClickPrint}
       >
         Print

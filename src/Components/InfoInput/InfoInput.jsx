@@ -9,6 +9,7 @@ import InfoSectionInputDesc from "./InfoSectionInputDesc";
 import InfoSectionInputList from "./InfoSectionInputList";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronUp, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { MyButton } from "../MyButton";
 export default InfoInput;
 
 const componentTempListId = new tempListId();
@@ -49,20 +50,20 @@ function InfoInput({
         <p style={FontSize.h1Styles}>{capitalize(type)}</p>
         <div>
           {moveSectionUpBtn && (
-            <button
+            <MyButton
               style={{ padding: "0px 4px" }}
               onClick={handleOnSectionMoveUp}
             >
               <FontAwesomeIcon icon={faChevronUp} />
-            </button>
+            </MyButton>
           )}
           {deleteSectionBtn && (
-            <button
+            <MyButton
               style={{ padding: "0px 4px", marginLeft: "4px" }}
               onClick={handleOnDeleteSection}
             >
               <FontAwesomeIcon icon={faTrash} />
-            </button>
+            </MyButton>
           )}
         </div>
       </div>
@@ -94,7 +95,7 @@ function InfoInput({
             <option value="List">Info List</option>
           </select>{" "}
           <div style={{ width: "4px" }}></div>
-          <button
+          <MyButton
             onClick={() => {
               handleOnAddInfo(
                 infoInputTypeSelect.current === "Desc"
@@ -104,7 +105,7 @@ function InfoInput({
             }}
           >
             Add Info
-          </button>
+          </MyButton>
         </div>
       )}
       <div>

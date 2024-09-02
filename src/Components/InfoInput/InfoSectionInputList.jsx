@@ -1,6 +1,7 @@
 import FontSize from "../../Theme/FontSize";
 import { tempListId } from "../../Utils/utils";
 import EditableTextbox from "../EditableTextbox/EditableTextbox";
+import { MyButton } from "../MyButton";
 
 export default InfoSectionInputList;
 
@@ -37,9 +38,9 @@ function InfoSectionInputList({
           <p style={FontSize.h2Styles}>Info List</p>
           <div style={{ width: "4px" }}></div>
           <div>
-            <button onClick={handleOnAddInfoList}>Add Info to list</button>{" "}
+            <MyButton onClick={handleOnAddInfoList}>Add Info to list</MyButton>{" "}
             {deleteListBtn && (
-              <button onClick={handleOnDeleteList}>Delete List</button>
+              <MyButton onClick={handleOnDeleteList}>Delete List</MyButton>
             )}
           </div>
         </div>

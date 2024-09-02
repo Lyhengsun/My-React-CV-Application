@@ -2,6 +2,7 @@ import { SectionProvider, useCanvas, useCanvasDispatch } from "../../Contexts";
 import { secondaryColor } from "../../Theme/Colors";
 import InfoSectionInput from "../InfoInput/InfoSectionInput";
 import InfoTitleInput from "../InfoInput/InfoTitleInput";
+import { MyButton } from "../MyButton";
 import styles from "./EditMenu.module.css";
 
 export default EditMenu;
@@ -37,7 +38,7 @@ function EditMenu() {
           </SectionProvider>
         );
       })}
-      <button onClick={handleOnAdd}>Add</button>
+      <MyButton onClick={handleOnAdd}>Add</MyButton>
     </div>
   );
 }
