@@ -4,10 +4,6 @@ import PageContent from "./PageContent";
 export default Page;
 
 function Page() {
-  function handleOnClickPrint() {
-    window.print();
-  }
-
   return (
     <div className={styles.PageContainer}>
       <div
@@ -21,12 +17,6 @@ function Page() {
           <PageContent />
         </div>
       </div>
-      <button
-        style={{ position: "absolute", top: "10px", right: "10px" }}
-        onClick={handleOnClickPrint}
-      >
-        Print
-      </button>
     </div>
   );
 }

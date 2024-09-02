@@ -11,7 +11,7 @@ function AppScreen() {
   return (
     <div>
       <CanvasProvider>
-        <Canvas toggle={toggle} />
+        <Canvas toggle={toggle} setToggle={setToggle} />
         <EditingDrawer toggle={toggle} setToggle={setToggle} />
       </CanvasProvider>
     </div>

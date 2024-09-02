@@ -10,7 +10,7 @@ function PageSectionList({ infos }) {
   const listId = componentTempListId.getTempListId(sectionInfos)
 
   return (
-    <ul style={{...FontSize.p2Styles, listStyleType:"disc"}}>
+    <ul style={{...FontSize.p2Styles, listStyleType:"disc", marginLeft: "24px"}}>
       {sectionInfos.map((info, index) => (
         <li key={listId[index]}>{info}</li>
       ))}
