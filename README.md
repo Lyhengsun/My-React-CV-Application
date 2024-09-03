@@ -37,7 +37,7 @@ npm run build
 ```
 
 ## GUI
-<div style="display: flex" align="center">
+<div align="center">
     <img title="The Untoggled Screen" alt="The Untoggled Screen" src="./readme_files/untoggle_screen.png" width=45%>
     <img title="The toggled Screen" alt="The toggled Screen" src="./readme_files/toggled_screen.png" width=45%>
 </div>
