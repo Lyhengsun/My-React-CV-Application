@@ -44,3 +44,8 @@ npm run build
 
 ## On Netlify
 This website is been deployed on [Netlify](https://chic-sunshine-eda07e.netlify.app/)
+
+## Note
+When clicked on Print to save CV as PDF, please the setting below to make the CV appeared properly:
+- Paper Size: A4
+- Margin: None
