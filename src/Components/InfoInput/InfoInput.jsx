@@ -1,10 +1,10 @@
 import { useRef } from "react";
 import { useSection } from "../../Contexts";
 import { infoType } from "../../Models/InfoModel";
+import styles from "../../styles/InfoInput.module.css";
 import FontSize from "../../Theme/FontSize";
 import { capitalize, tempListId } from "../../Utils/utils";
 import EditableTextbox from "../EditableTextbox/EditableTextbox";
-import styles from "./InfoInput.module.css";
 import InfoSectionInputDesc from "./InfoSectionInputDesc";
 import InfoSectionInputList from "./InfoSectionInputList";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

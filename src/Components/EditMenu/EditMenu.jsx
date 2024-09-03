@@ -3,7 +3,7 @@ import { secondaryColor } from "../../Theme/Colors";
 import InfoSectionInput from "../InfoInput/InfoSectionInput";
 import InfoTitleInput from "../InfoInput/InfoTitleInput";
 import { MyButton } from "../MyButton";
-import styles from "./EditMenu.module.css";
+import styles from "../../styles/EditMenu.module.css";
 
 export default EditMenu;
 

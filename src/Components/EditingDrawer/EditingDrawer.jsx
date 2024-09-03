@@ -1,5 +1,4 @@
-import { useState } from "react";
-import styles from "./EditingDrawer.module.css";
+import styles from "../../styles/EditingDrawer.module.css";
 import { primaryColor, secondaryColor } from "../../Theme/Colors";
 import EditMenu from "../EditMenu/EditMenu";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

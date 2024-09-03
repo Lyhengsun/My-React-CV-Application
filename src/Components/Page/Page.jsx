@@ -1,4 +1,4 @@
-import styles from "./Page.module.css";
+import styles from "../../styles/Page.module.css";
 import PageContent from "./PageContent";
 
 export default Page;

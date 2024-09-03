@@ -1,7 +1,7 @@
 import { secondaryColor } from "../../Theme/Colors";
 import { MyButton } from "../MyButton";
 import { Page } from "../Page";
-import styles from "./Canvas.module.css";
+import styles from "../../styles/Canvas.module.css";
 
 MyButton
 export default Canvas;
