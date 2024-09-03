@@ -41,3 +41,6 @@ npm run build
     <img title="The Untoggled Screen" alt="The Untoggled Screen" src="./readme_files/untoggle_screen.png" width=45%>
     <img title="The toggled Screen" alt="The toggled Screen" src="./readme_files/toggled_screen.png" width=45%>
 </div>
+
+## On Netlify
+This website is been deployed on [Netlify](https://chic-sunshine-eda07e.netlify.app/)
