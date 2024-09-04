@@ -13,7 +13,11 @@ function Page() {
           margin: "0 auto",
         }}
       >
-        <div id="pageToPrint" className={styles.Page}>
+        <div
+          id="pageToPrint"
+          className={styles.Page}
+          style={{ backgroundColor: "white" }}
+        >
           <PageContent />
         </div>
       </div>
