@@ -1,6 +1,7 @@
 import { createContext, useContext, useReducer } from "react";
 import SectionModel, { TitleSectionModel } from "../Models/SectionModel";
 import { InfoModel, infoType } from "../Models/InfoModel";
+import PropTypes from "prop-types";
 
 export default CanvasProvider;
 
@@ -50,6 +51,9 @@ function CanvasProvider({ children }) {
     </CanvasContext.Provider>
   );
 }
+CanvasProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 function canvasReducer(canvas, action) {
   const sections = canvas.sections;
